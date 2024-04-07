@@ -4,8 +4,8 @@ const Home = () => {
       <h1>Home</h1>
       <div>
         <form>
-          <input className="product-search-input" />
-          <button className="product-search-btn" type="submit">Search</button>
+          <input className="input-search-prduct" />
+          <button className="btn-search-product" type="submit">Search</button>
         </form>
       </div>
     </>
