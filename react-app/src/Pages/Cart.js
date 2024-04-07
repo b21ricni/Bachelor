@@ -1,13 +1,10 @@
+import { useState } from "react"
+
 const Cart = () => {
+
   return (
     <>
-      <div className="">
-        {Array(5).fill().map(index => {
-          return <div key={index}>
-              <p>Hej testing {index}</p>
-            </div>
-        })}
-      </div>
+      <p>Hi</p>
     </> 
   )
 }
