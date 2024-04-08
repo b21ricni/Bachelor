@@ -21,7 +21,7 @@ if (mysqli_num_rows($result) > 0) {
           "Name" =>["Name"],
           "Price" =>["Price"],
           "Description" =>["Description"],
-          //"Picture" =>["Picture"],
+          "Picture" =>["Picture"],
         );
     }
 } else {
