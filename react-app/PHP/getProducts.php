@@ -11,20 +11,23 @@ $result = mysqli_query($connect, $sql);
 
 // Checking if the query was successful
 if (mysqli_num_rows($result) > 0) {
+
     // Outputting the data
     while ($row = mysqli_fetch_assoc($result)) {
         $products [] = array(
-          "ID" =>["ID"],
-          "Name" =>["Name"],
-          "Price" =>["Price"],
-          "Description" =>["Description"],
-          "Picture" =>["Picture"],
+          "ID" =>$row["ID"],
+          "Name" =>$row["Name"],
+          "Price" =>$row["Price"],
+          "Description" =>$row["Description"],
+          "Picture" =>$row["Picture"],
         );
     }
 
-    
+
 } else {
     echo "0 results";
 }
 
 echo json_encode($products);
+
+print_r ($products);
