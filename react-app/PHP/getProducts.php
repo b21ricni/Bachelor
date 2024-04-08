@@ -13,8 +13,16 @@ $result = mysqli_query($connect, $sql);
 if (mysqli_num_rows($result) > 0) {
     // Outputting the data
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "ID: " . $row["ID"] . " - Name: " . $row["Name"] . "
-";
+        //echo "ID: " . $row["ID"] . " - Name: " . $row["Name"] . "";
+        
+        //Create array for products
+        $products [] = array(
+          "ID" =>["ID"],
+          "Name" =>["Name"],
+          "Price" =>["Price"],
+          "Description" =>["Description"],
+          //"Picture" =>["Picture"],
+        );
     }
 } else {
     echo "0 results";
