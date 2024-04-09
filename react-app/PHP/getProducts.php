@@ -2,9 +2,15 @@
 include("./server.php");
 
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
 
 //get searchWord from search
-$searchWord = $_POST['searchWord'];
+
+$searchWord = [];
+
+// Retrieve the search word from the POST data
+$searchWord = $_POST['word'];
 
 // SQL query to retrieve data
 $sql = "SELECT * FROM product";

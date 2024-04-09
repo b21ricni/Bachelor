@@ -10,9 +10,10 @@ function Home(){
     e.preventDefault()
 
     console.log("Search word:", searchWord);
-  
+
     // Send search value to getProducts
     fetch(baseUrl + "php/getProducts.php", {
+      mode: 'no-cors',
       method: "POST",
       body: JSON.stringify({ searchWord }), // Convert to JSON
       headers: {

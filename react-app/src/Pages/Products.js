@@ -17,8 +17,9 @@ function Products() {
       method: "POST",
       body: JSON.stringify({ searchWord }), // Convert to JSON
       headers: {
+        Accept: 'application/json',
         "Content-Type": "application/json",
-      },
+      }
     })
       .then((response) => response.json())
       .then((data) => {

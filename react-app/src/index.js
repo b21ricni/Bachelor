@@ -2,11 +2,6 @@ import * as React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
-//Without Lazy Loading
-//import Cart from "./Pages/Cart";
-//import Products from "./Pages/Products";
-//import Home from "./Pages/Home";
-//import Layout from "./Pages/Header";
 
 //With Lazy Loading
 const Cart = React.lazy(() => import("./Pages/Cart"));
