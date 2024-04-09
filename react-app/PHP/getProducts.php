@@ -3,6 +3,9 @@ include("./server.php");
 
 header("Access-Control-Allow-Origin: *");
 
+//get searchWord from search
+$searchWord = $_POST['searchWord'];
+
 // SQL query to retrieve data
 $sql = "SELECT * FROM product";
 
