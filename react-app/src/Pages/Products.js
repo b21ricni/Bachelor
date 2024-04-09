@@ -26,7 +26,8 @@ function Products() {
         {products.map((product) => (
           <li key={product.ID}>
             <img src={product.Image}></img>
-            <strong>{product.Name}</strong> - ${product.Price}
+            <strong>{product.Name}</strong>
+            <p>${product.Price}</p>
             <p>{product.Description}</p>
             <button>Add to cart</button>
           </li>
