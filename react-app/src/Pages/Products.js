@@ -11,8 +11,8 @@ function Products() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch(baseUrl + "php/getProducts.php");
-      const data = await response.json();
+      const products = await fetch(baseUrl + "php/getProducts.php");
+      const data = await products.json();
       setProducts(data); // Set the products array in your state
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -25,8 +25,10 @@ function Products() {
       <ul>
         {products.map((product) => (
           <li key={product.ID}>
+            <img src={product.Image}></img>
             <strong>{product.Name}</strong> - ${product.Price}
             <p>{product.Description}</p>
+            <button>Add to cart</button>
           </li>
         ))}
       </ul>

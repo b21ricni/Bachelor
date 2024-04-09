@@ -1,6 +1,6 @@
 import * as React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 //Without Lazy Loading
 //import Cart from "./Pages/Cart";
@@ -16,7 +16,7 @@ const Header = React.lazy(() => import("./Pages/Header"));
 
 export default function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <React.Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Header />}>
@@ -26,7 +26,7 @@ export default function App() {
           </Route>
         </Routes>
       </React.Suspense>
-    </Router>
+    </BrowserRouter>
   );
 }
 
