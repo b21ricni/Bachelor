@@ -6,12 +6,39 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [searchWord, setSearchWord] = useState("")
 
-
   function handleSubmit(e){
     e.preventDefault()
 
-    console.log("Search word:", searchWord);
+    console.log("Search word:", searchWord)
+
+    
+    console.log("function should be called")
+
+  }
+
+  function conlog(){
+    console.log(searchWord)
+  }
+
+  const handleInputChange = (e) => {
+    setSearchWord(e.target.value)
+  }
+  useEffect(() => {
+    fetchProducts();
+  }, []);
   
+  const fetchProducts = async () => {
+    try {
+      const products = await fetch(baseUrl + "php/getProducts.php");
+      const data = await products.json();
+      setProducts(data); // Set the products array in your state
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+
+  function addSearch2(){
+    
     // Send search value to getProducts
     fetch(baseUrl + "php/getProducts.php", {
       method: "POST",
@@ -31,22 +58,25 @@ function Products() {
       });
   }
 
-  const handleInputChange = (e) => {
-    setSearchWord(e.target.value)
-  }
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const fetchProducts = async () => {
+  const addSearch = async () => {
+    console.log("entering addsearch")
+    var formData = new FormData()
+    console.log("entering function")
+    formData.append('searchWord', searchWord)
+    console.log("Formdata should be append")
     try {
-      const products = await fetch(baseUrl + "php/getProducts.php");
-      const data = await products.json();
-      setProducts(data); // Set the products array in your state
+      console.log("entering Try")
+      const word = await fetch(baseUrl + "php/getProducts.php", {
+        method: "POST",
+        body: formData
+      })
+      console.log("Should be fetched")
+      const data = await word.json()
+      console.log("Response data:", data); // Log the response data
     } catch (error) {
-      console.error("Error fetching products:", error);
+        console.error("Error fetching data:", error); // Handle any errors
     }
-  };
+  }
 
   return (
     <div>
@@ -69,6 +99,8 @@ function Products() {
           </li>
         ))}
       </ul>
+      <p>bugtesting</p>
+      <button className="btn-search-product" type="submit" onClick={conlog}>conlog</button>
     </div>
   );
 }
