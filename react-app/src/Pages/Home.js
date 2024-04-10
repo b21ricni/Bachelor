@@ -12,7 +12,8 @@ function Home(){
     console.log("Search word:", searchWord);
 
     // Send search value to getProducts
-    fetch(baseUrl + "php/getProducts.php", {
+    //fetch(baseUrl + "php/getProducts.php", {
+    fetch("../../PHP/getProducts.php", {
       mode: 'no-cors',
       method: "POST",
       body: JSON.stringify({ searchWord }), // Convert to JSON

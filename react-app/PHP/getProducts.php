@@ -8,13 +8,17 @@ include("./server.php");
 
 //get searchWord from search
 
-$searchWord = [];
+if(empty($_POST)){
+    $_POST=json_decode(file_get_contents('php://input', false),true);
+}
+
+//$searchWord=getpostAJAX("searchWord");
 
 // Retrieve the search word from the POST data
 //$searchWord = $_POST['searchWord'];
 
 // SQL query to retrieve data
-$sql = "SELECT * FROM product WHERE Name=$searchWord";
+$sql = "SELECT * FROM product";
 
 // Executing the query and storing the result
 $result = mysqli_query($connect, $sql);
