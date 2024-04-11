@@ -76,8 +76,6 @@ function Products() {
           </li>
         ))}
       </ul>
-      <p>bugtesting</p>
-      <button className="btn-search-product" type="submit" onClick={conlog}>conlog</button>
     </div>
   );
 }
