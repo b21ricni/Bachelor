@@ -10,8 +10,6 @@ if(empty($_POST)){
 
 $ID = intval($_POST['ID']);
 
-die ($ID);
-
 $sql = "DELETE FROM cart WHERE product_id = '$ID'";
 
 $result = mysqli_query($connect, $sql);
@@ -21,3 +19,5 @@ if ($result) {
 } else {
   echo json_encode(["success" => false, "message" => "Error deleting product"]);
 }
+mysqli_close($connect);
+?>

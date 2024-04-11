@@ -49,24 +49,6 @@ function Products() {
       });
   }
 
-  const addSearch = async () => {
-    var formData = new FormData()
-    
-    formData.append('searchWord', searchWord)
-    try {
-      console.log("entering Try")
-      const word = await fetch(baseUrl + "php/getProducts.php", {
-        method: "POST",
-        body: formData
-      })
-      console.log("Should be fetched")
-      const data = await word.json()
-      console.log("Response data:", data); // Log the response data
-    } catch (error) {
-        console.error("Error fetching data:", error); // Handle any errors
-    }
-  }
-
   function handleSubmit(e){
     e.preventDefault()
 

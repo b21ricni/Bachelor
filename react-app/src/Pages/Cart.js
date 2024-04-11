@@ -19,28 +19,28 @@ function Cart() {
     }
   };
 
-  function deleteCartProduct(ID){
-    // Send search value to getProducts
+  function deleteCartProduct(ID) {
     fetch(baseUrl + "php/deleteCartProduct.php", {
       method: "POST",
       body: JSON.stringify({ ID }), // Convert to JSON
       headers: {
-        Accept: 'application/json',
+        Accept: "application/json",
         "Content-Type": "application/json",
-      }
+      },
     })
-    .then((response) => {
-      console.log("response:", response);
-      return response.json();
-    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json(); // Parse the response
+      })
       .then((data) => {
-      console.log("Deleted product:", data);
-      setProducts((prevProducts) => prevProducts.filter((p) => p.ID !== ID));
-    })
-    .catch((error) => {
-      console.error("Error sending data to PHP:", error);
-    });
-      
+        console.log("Deleted product:", data);
+        setProducts((prevProducts) => prevProducts.filter((p) => p.ID !== ID));
+      })
+      .catch((error) => {
+        console.error("Error sending data to PHP:", error);
+      });
   }
   
 
