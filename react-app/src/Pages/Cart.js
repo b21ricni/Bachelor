@@ -19,6 +19,31 @@ function Cart() {
     }
   };
 
+  function deleteCartProduct(ID){
+    // Send search value to getProducts
+    fetch(baseUrl + "php/deleteCartProduct.php", {
+      method: "POST",
+      body: JSON.stringify({ ID }), // Convert to JSON
+      headers: {
+        Accept: 'application/json',
+        "Content-Type": "application/json",
+      }
+    })
+    .then((response) => {
+      console.log("response:", response);
+      return response.json();
+    })
+      .then((data) => {
+      console.log("Deleted product:", data);
+      setProducts((prevProducts) => prevProducts.filter((p) => p.ID !== ID));
+    })
+    .catch((error) => {
+      console.error("Error sending data to PHP:", error);
+    });
+      
+  }
+  
+
   return (
     <div>
       <h1>Cart</h1>
@@ -29,7 +54,7 @@ function Cart() {
             <strong>{product.Name}</strong>
             <p>${product.Price}</p>
             <p>{product.Description}</p>
-            <button>Delete</button>
+            <button onClick={() => deleteCartProduct(product.ID)}>Delete</button>
           </li>
         ))}
       </ul>

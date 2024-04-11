@@ -13,7 +13,7 @@ function Products() {
   const handleInputChange = (e) => {
     setSearchWord(e.target.value)
   }
-  
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -71,7 +71,6 @@ function Products() {
     e.preventDefault()
 
     addSearch2()
-    setProducts('')
   }
 
   return (
