@@ -12,13 +12,15 @@ if(empty($_POST)){
     $_POST=json_decode(file_get_contents('php://input', false),true);
 }
 
-//$searchWord=getpostAJAX("searchWord");
+$searchWord = $_POST['searchWord'];
+
+
 
 // Retrieve the search word from the POST data
 //$searchWord = $_POST['searchWord'];
 
 // SQL query to retrieve data
-$sql = "SELECT * FROM product";
+$sql = "SELECT * FROM product WHERE Name='$searchWord'";
 
 // Executing the query and storing the result
 $result = mysqli_query($connect, $sql);

@@ -10,7 +10,7 @@ function Products() {
     e.preventDefault()
 
     console.log("Search word:", searchWord)
-
+    addSearch2()
     
     console.log("function should be called")
 
@@ -59,11 +59,9 @@ function Products() {
   }
 
   const addSearch = async () => {
-    console.log("entering addsearch")
     var formData = new FormData()
-    console.log("entering function")
+    
     formData.append('searchWord', searchWord)
-    console.log("Formdata should be append")
     try {
       console.log("entering Try")
       const word = await fetch(baseUrl + "php/getProducts.php", {
