@@ -41,8 +41,8 @@ function Products() {
     })
       .then((response) => response.json())
       .then((data) => {
-        // confirm conversion works
         console.log("Search results:", data);
+        setProducts(data);
       })
       .catch((error) => {
         console.error("Error sending data to PHP:", error);
