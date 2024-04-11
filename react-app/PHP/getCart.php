@@ -1,7 +1,6 @@
 <?php
-include("./server.php");
-
 header("Access-Control-Allow-Origin: *");
+include("./server.php");
 
 // Query to fetch cart items along with product details
 $sql = "SELECT * FROM product p JOIN cart c WHERE p.ID = c.product_id";

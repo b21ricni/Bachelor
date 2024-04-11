@@ -3,18 +3,8 @@ import React, { useState, useEffect } from "react";
 const baseUrl = "http://localhost/Bachelor/react-app/";
 
 function Products() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
   const [searchWord, setSearchWord] = useState("")
-
-  function handleSubmit(e){
-    e.preventDefault()
-
-    console.log("Search word:", searchWord)
-    addSearch2()
-    
-    console.log("function should be called")
-
-  }
 
   function conlog(){
     console.log(searchWord)
@@ -23,6 +13,7 @@ function Products() {
   const handleInputChange = (e) => {
     setSearchWord(e.target.value)
   }
+  
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -74,6 +65,13 @@ function Products() {
     } catch (error) {
         console.error("Error fetching data:", error); // Handle any errors
     }
+  }
+
+  function handleSubmit(e){
+    e.preventDefault()
+
+    addSearch2()
+    setProducts('')
   }
 
   return (
