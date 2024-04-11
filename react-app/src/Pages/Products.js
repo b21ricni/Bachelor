@@ -28,7 +28,7 @@ function Products() {
     }
   };
 
-  function addSearch2(){
+  function addSearch(){
     
     // Send search value to getProducts
     fetch(baseUrl + "php/getProducts.php", {
@@ -52,7 +52,7 @@ function Products() {
   function handleSubmit(e){
     e.preventDefault()
 
-    addSearch2()
+    addSearch()
   }
 
   return (
