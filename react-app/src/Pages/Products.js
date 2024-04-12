@@ -61,8 +61,7 @@ function Products() {
         return response.json(); // Parse the response
       })
       .then((data) => {
-        console.log("Deleted product:", data);
-        setProducts((prevProducts) => prevProducts.filter((p) => p.ID !== ID));
+        console.log("Added:", data);
       })
       .catch((error) => {
         console.error("Error sending data to PHP:", error);

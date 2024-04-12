@@ -10,7 +10,7 @@ if(empty($_POST)){
 
 $ID = intval($_POST['ID']);
 
-$sql = "INSERT INTO cart WHERE product_id = '$ID'";
+$sql = "INSERT INTO cart(product_id) VALUES ('$ID')";
 
 $result = mysqli_query($connect, $sql);
 
