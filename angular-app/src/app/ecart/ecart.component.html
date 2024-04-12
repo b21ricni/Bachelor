@@ -1,10 +1,11 @@
 <h1>Cart</h1>
 <ul>
-  <li>
-    <img src="" alt="">
-    <strong></strong>
-    <p>$</p>
-    <p></p>
+  <li *ngFor="let product of products" id="{{ product.ID }}">
+    <img src="{{product.Image}}" />
+    <strong>{{ product.Name }}</strong>
+    <p>${{product.Price}}</p>
+    <p>{{product.Description}}</p>
     <button>Delete</button>
   </li>
 </ul>
+<button (click)="getProducts()">Fetch Data</button>

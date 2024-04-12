@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'app-ecart',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './ecart.component.css'
 })
 export class EcartComponent {
+  products: any[] = [];
 
+  constructor(private productService: ProductService) {}
+
+  getProducts(): void {
+    this.productService.getProducts().subscribe((res: any) => {
+      this.products = res;
+    });
+  }
 }
