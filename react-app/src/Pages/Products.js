@@ -18,14 +18,13 @@ function Products() {
     try {
       const products = await fetch(baseUrl + "php/getProducts.php");
       const data = await products.json();
-      setProducts(data); // Set the products array in your state
+      setProducts(data);
     } catch (error) {
       console.error("Error fetching products:", error);
     }
   };
 
   function addSearch(){
-    // Send search value to getProducts
     fetch(baseUrl + "php/getProducts.php", {
       method: "POST",
       body: JSON.stringify({ searchWord }), // Convert to JSON

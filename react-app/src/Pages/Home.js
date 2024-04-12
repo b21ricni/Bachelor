@@ -10,7 +10,6 @@ function Home(){
   }
 
   function addSearch(){
-    // Send search value to getProducts
     fetch(baseUrl + "php/getProducts.php", {
       method: "POST",
       body: JSON.stringify({ searchWord }), // Convert to JSON

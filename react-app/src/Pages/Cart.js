@@ -13,7 +13,7 @@ function Cart() {
     try {
       const products = await fetch(baseUrl + "php/getCart.php");
       const data = await products.json();
-      setProducts(data); // Set the products array in your state
+      setProducts(data);
     } catch (error) {
       console.error("Error fetching products:", error);
     }
