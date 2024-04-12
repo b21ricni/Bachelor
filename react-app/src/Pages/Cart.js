@@ -30,7 +30,7 @@ function Cart() {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error("Network error");
         }
         return response.json(); // Parse the response
       })

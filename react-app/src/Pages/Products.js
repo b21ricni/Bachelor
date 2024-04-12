@@ -6,10 +6,6 @@ function Products() {
   const [products, setProducts] = useState([])
   const [searchWord, setSearchWord] = useState("")
 
-  function conlog(){
-    console.log(searchWord)
-  }
-
   const handleInputChange = (e) => {
     setSearchWord(e.target.value)
   }
@@ -49,6 +45,30 @@ function Products() {
       });
   }
 
+  function addCartProduct(ID) {
+    fetch(baseUrl + "php/addCartProduct.php", {
+      method: "POST",
+      body: JSON.stringify({ ID }), // Convert to JSON
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network error");
+        }
+        return response.json(); // Parse the response
+      })
+      .then((data) => {
+        console.log("Deleted product:", data);
+        setProducts((prevProducts) => prevProducts.filter((p) => p.ID !== ID));
+      })
+      .catch((error) => {
+        console.error("Error sending data to PHP:", error);
+      });
+  }
+
   function handleSubmit(e){
     e.preventDefault()
 
@@ -72,7 +92,7 @@ function Products() {
             <strong>{product.Name}</strong>
             <p>${product.Price}</p>
             <p>{product.Description}</p>
-            <button>Add to cart</button>
+            <button onClick={() => addCartProduct(product.ID)}>Buy</button>
           </li>
         ))}
       </ul>
