@@ -20,7 +20,7 @@ $searchWord = $_POST['searchWord'];
 //$searchWord = $_POST['searchWord'];
 
 // SQL query to retrieve data
-$sql = "SELECT * FROM product WHERE Name='%$searchWord%'";
+$sql = "SELECT * FROM product WHERE Name LIKE '%$searchWord%'";
 
 // Executing the query and storing the result
 $result = mysqli_query($connect, $sql);

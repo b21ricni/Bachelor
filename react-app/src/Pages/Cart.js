@@ -42,7 +42,6 @@ function Cart() {
         console.error("Error sending data to PHP:", error);
       });
   }
-  
 
   return (
     <div>
