@@ -15,9 +15,9 @@ $sql = "INSERT INTO cart(product_id) VALUES ('$ID')";
 $result = mysqli_query($connect, $sql);
 
 if ($result) {
-  echo json_encode(["success" => true, "message" => "Product deleted successfully"]);
+  echo json_encode(["success" => true, "message" => "Product added successfully"]);
 } else {
-  echo json_encode(["success" => false, "message" => "Error deleting product"]);
+  echo json_encode(["success" => false, "message" => "Error adding product"]);
 }
 mysqli_close($connect);
 ?>
