@@ -25,7 +25,6 @@ function Products() {
   };
 
   function addSearch(){
-    
     // Send search value to getProducts
     fetch(baseUrl + "php/getProducts.php", {
       method: "POST",
