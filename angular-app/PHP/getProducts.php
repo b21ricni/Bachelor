@@ -14,8 +14,6 @@ if(empty($_POST)){
 
 $searchWord = $_POST['searchWord'];
 
-
-
 // Retrieve the search word from the POST data
 //$searchWord = $_POST['searchWord'];
 

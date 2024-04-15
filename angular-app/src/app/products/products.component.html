@@ -1,1 +1,20 @@
-<p>products works!</p>
+<h1>Cart</h1>
+
+<div>
+  <form (ngSubmit)="searchProducts()" >
+    <label for="searchInput">Search for product</label>
+    <input [(ngModel)]="searchWord" name="searchInput" id="searchInput" />
+    <button className="btn-search-product" type="submit">Search</button>
+  </form>
+</div>
+
+
+<ul>
+  <li id="{{ product.ID }}">
+    <img src="{{product.Image}}" />
+    <strong>{{ product.Name }}</strong>
+    <p>${{product.Price}}</p>
+    <p>{{product.Description}}</p>
+    <button>Buy</button>
+  </li>
+</ul>
