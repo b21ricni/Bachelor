@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import "./Cart.css";
 
 const baseUrl = "http://localhost/Bachelor/react-app/";
+const imgUrl = ("http://localhost/Bachelor/react-app/images/")
 
 function Cart() {
   const [products, setProducts] = useState([]);
@@ -49,7 +51,7 @@ function Cart() {
       <ul>
         {products.map((product) => (
           <li key={product.ID}>
-            <img src={product.Image}></img>
+            <img src={imgUrl + product.Picture + ".png"}></img>
             <strong>{product.Name}</strong>
             <p>${product.Price}</p>
             <p>{product.Description}</p>

@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductsComponent{
   searchWord!: string;
+  productData: any[] = [];
+  
 
   constructor(private http: HttpClient) {}
 
@@ -15,12 +17,29 @@ export class ProductsComponent{
     const getSearchWord = 'http://localhost/Bachelor/angular-app/php/getProducts.php';
 
     const requestData = {
-      searchWord: this.searchWord,
+      searchWord: this.searchWord
     };
 
     this.http.post(getSearchWord, requestData).subscribe(
-      (response) => {
-        console.log('Response from PHP:', response);
+      (response: any) => {
+        this.productData = response;
+      },
+      (error) => {
+        console.error('Error sending data to PHP:', error);
+      }
+    );
+  }
+  
+  addCartProduct(ID: string): void{
+    const addCartProduct = 'http://localhost/Bachelor/angular-app/php/addCartProduct.php';
+    
+    const requestData = {
+      ID    
+    };
+
+    this.http.post(addCartProduct, requestData).subscribe(
+      (response: any) => {
+        console.log('Product added to cart:', response);
       },
       (error) => {
         console.error('Error sending data to PHP:', error);

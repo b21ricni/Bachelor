@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import "./Products.css";
 
 const baseUrl = "http://localhost/Bachelor/react-app/";
+const imgUrl = "http://localhost/Bachelor/react-app/images/"
 
 function Products() {
   const [products, setProducts] = useState([])
   const [searchWord, setSearchWord] = useState("")
+  
 
   const handleInputChange = (e) => {
     setSearchWord(e.target.value)
@@ -85,7 +88,7 @@ function Products() {
       <ul>
         {products.map((product) => (
           <li key={product.ID}>
-            <img src={product.Image}></img>
+            <img className="prodImg" src={imgUrl + product.Picture + ".png"}></img>
             <strong>{product.Name}</strong>
             <p>${product.Price}</p>
             <p>{product.Description}</p>

@@ -10,11 +10,11 @@
 
 
 <ul>
-  <li id="{{ product.ID }}">
-    <img src="{{product.Image}}" />
+  <li *ngFor="let product of productData" id="{{ product.ID }}">
+    <img class="prodImg" src="http://localhost/Bachelor/angular-app/images/{{ product.Picture }}.png" />
     <strong>{{ product.Name }}</strong>
     <p>${{product.Price}}</p>
     <p>{{product.Description}}</p>
-    <button>Buy</button>
+    <button (click)="addCartProduct(product.ID)">Buy</button>
   </li>
 </ul>

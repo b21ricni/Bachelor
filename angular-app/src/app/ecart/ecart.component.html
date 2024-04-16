@@ -1,10 +1,10 @@
 <h1>Cart</h1>
 <ul>
   <li *ngFor="let product of products" id="{{ product.ID }}">
-    <img src="{{product.Image}}" />
+    <img class="prodImg" src="http://localhost/Bachelor/angular-app/images/{{ product.Picture }}.png" />
     <strong>{{ product.Name }}</strong>
     <p>${{product.Price}}</p>
     <p>{{product.Description}}</p>
-    <button>Delete</button>
+    <button (click)="deleteCartProduct(product.ID)">Delete</button>
   </li>
 </ul>
