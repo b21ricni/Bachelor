@@ -10,14 +10,10 @@ if(empty($_POST)){
 
 $ID = intval($_POST['ID']);
 
+// SQL query to retrieve data
 $sql = "INSERT INTO cart(product_id) VALUES ('$ID')";
 
 $result = mysqli_query($connect, $sql);
 
-if ($result) {
-  echo json_encode(["success" => true, "message" => "Product added successfully"]);
-} else {
-  echo json_encode(["success" => false, "message" => "Error adding product"]);
-}
 mysqli_close($connect);
 ?>

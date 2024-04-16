@@ -27,6 +27,5 @@ if (mysqli_num_rows($result) > 0) {
 
 echo json_encode($products);
 
-// Close the database connection
 mysqli_close($connect);
 ?>

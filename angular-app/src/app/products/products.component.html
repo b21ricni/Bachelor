@@ -3,14 +3,14 @@
 <div>
   <form (ngSubmit)="searchProducts()" >
     <label for="searchInput">Search for product</label>
-    <input [(ngModel)]="searchWord" name="searchInput" id="searchInput" />
+    <input [(ngModel)]="searchWord" class="searchInput"/>
     <button className="btn-search-product" type="submit">Search</button>
   </form>
 </div>
 
 
 <ul>
-  <li *ngFor="let product of productData" id="{{ product.ID }}">
+  <li *ngFor="let product of products" id="{{ product.ID }}">
     <img class="prodImg" src="http://localhost/Bachelor/angular-app/images/{{ product.Picture }}.png" />
     <strong>{{ product.Name }}</strong>
     <p>${{product.Price}}</p>

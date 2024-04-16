@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
 
-const baseUrl = "http://localhost/Bachelor/react-app/";
+const baseUrl = "http://localhost/Bachelor/react-app/"
 const imgUrl = "http://localhost/Bachelor/react-app/images/"
 
 function Products() {
@@ -13,18 +13,20 @@ function Products() {
     setSearchWord(e.target.value)
   }
 
+  function handleSubmit(e){
+    e.preventDefault()
+
+    addSearch()
+  }
+
   useEffect(() => {
-    fetchProducts();
+    fetchProducts()
   }, []);
   
   const fetchProducts = async () => {
-    try {
-      const products = await fetch(baseUrl + "php/getProducts.php");
-      const data = await products.json();
-      setProducts(data);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    }
+    const products = await fetch(baseUrl + "php/getProducts.php")
+    const data = await products.json()
+    setProducts(data)
   };
 
   function addSearch(){
@@ -36,14 +38,8 @@ function Products() {
         "Content-Type": "application/json",
       }
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Search results:", data);
-        setProducts(data);
-      })
-      .catch((error) => {
-        console.error("Error sending data to PHP:", error);
-      });
+    .then((response) => response.json())
+    .then((data) => { setProducts(data) })
   }
 
   function addCartProduct(ID) {
@@ -55,24 +51,6 @@ function Products() {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network error");
-        }
-        return response.json(); // Parse the response
-      })
-      .then((data) => {
-        console.log("Added:", data);
-      })
-      .catch((error) => {
-        console.error("Error sending data to PHP:", error);
-      });
-  }
-
-  function handleSubmit(e){
-    e.preventDefault()
-
-    addSearch()
   }
 
   return (

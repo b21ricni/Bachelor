@@ -5,27 +5,19 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 include("./server.php");
 
-
-//get searchWord from search
-
 if(empty($_POST)){
     $_POST=json_decode(file_get_contents('php://input', false),true);
 }
 
 $searchWord = $_POST['searchWord'];
 
-
-
-// Retrieve the search word from the POST data
-//$searchWord = $_POST['searchWord'];
-
 // SQL query to retrieve data
+// In production code should use prepered statements, this is unsafe
 $sql = "SELECT * FROM product WHERE Name LIKE '%$searchWord%'";
 
 // Executing the query and storing the result
 $result = mysqli_query($connect, $sql);
 
-// Checking if the query was successful
 if (mysqli_num_rows($result) > 0) {
 
     // Outputting the data
@@ -45,5 +37,6 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 echo json_encode($products);
+
 mysqli_close($connect);
 ?>

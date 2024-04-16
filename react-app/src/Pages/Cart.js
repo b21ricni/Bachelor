@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
-import "./Cart.css";
+import "./Cart.css"
 
-const baseUrl = "http://localhost/Bachelor/react-app/";
-const imgUrl = ("http://localhost/Bachelor/react-app/images/")
+const baseUrl = "http://localhost/Bachelor/react-app/"
+const imgUrl = "http://localhost/Bachelor/react-app/images/"
 
 function Cart() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
-    fetchProducts();
+    fetchProducts()
   }, []);
   
   const fetchProducts = async () => {
-    try {
-      const products = await fetch(baseUrl + "php/getCart.php");
-      const data = await products.json();
-      setProducts(data);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    }
+    const products = await fetch(baseUrl + "php/getCart.php")
+    const data = await products.json()
+    setProducts(data);
   };
 
   function deleteCartProduct(ID) {
@@ -30,19 +26,7 @@ function Cart() {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network error");
-        }
-        return response.json(); // Parse the response
-      })
-      .then((data) => {
-        console.log("Deleted product:", data);
-        setProducts((prevProducts) => prevProducts.filter((p) => p.ID !== ID));
-      })
-      .catch((error) => {
-        console.error("Error sending data to PHP:", error);
-      });
+    setProducts((prevProducts) => prevProducts.filter((p) => p.ID !== ID))
   }
 
   return (
@@ -51,7 +35,7 @@ function Cart() {
       <ul>
         {products.map((product) => (
           <li key={product.ID}>
-            <img src={imgUrl + product.Picture + ".png"}></img>
+            <img className="prodImg" src={imgUrl + product.Picture + ".png"}></img>
             <strong>{product.Name}</strong>
             <p>${product.Price}</p>
             <p>{product.Description}</p>

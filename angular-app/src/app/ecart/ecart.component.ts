@@ -7,22 +7,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './ecart.component.css'
 })
 export class EcartComponent implements OnInit{
-  searchWord!: string;
   products: any[] = [];
 
   constructor(private http: HttpClient) {}
 
   getProducts(): void {
-    const getSearchWord = 'http://localhost/Bachelor/angular-app/php/getCart.php';
+    const getCartProducts = 'http://localhost/Bachelor/angular-app/php/getCart.php';
 
   
 
-    this.http.get(getSearchWord).subscribe(
+    this.http.get(getCartProducts).subscribe(
       (response: any) => {
         this.products = response;
-      },
-      (error) => {
-        console.error('Error sending data to PHP:', error);
       }
     );
   }
@@ -39,13 +35,9 @@ export class EcartComponent implements OnInit{
     };
 
     this.http.post(deleteCartProduct, requestData).subscribe(
-      (response: any) => {
-        console.log('Product removed from cart:', response);
+      () => {
         this.getProducts();
       },
-      (error) => {
-        console.error('Error sending data to PHP:', error);
-      }
     );
   }
 }
