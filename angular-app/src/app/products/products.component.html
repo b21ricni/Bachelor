@@ -1,10 +1,10 @@
-<h1>Cart</h1>
+<h1>Products</h1>
 
 <div>
   <form (ngSubmit)="searchProducts()" >
     <label for="searchInput">Search for product</label>
-    <input [(ngModel)]="searchWord" class="searchInput"/>
-    <button className="btn-search-product" type="submit">Search</button>
+    <input [(ngModel)]="searchWord" class="searchInput" name="searchInput" id="searchInput"/>
+    <button className="btn-search-product" type="submit" id="btn-search-prodpage">Search</button>
   </form>
 </div>
 

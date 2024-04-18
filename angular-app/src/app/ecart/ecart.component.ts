@@ -13,12 +13,10 @@ export class EcartComponent implements OnInit{
 
   getProducts(): void {
     const getCartProducts = 'http://localhost/Bachelor/angular-app/php/getCart.php';
-
   
-
     this.http.get(getCartProducts).subscribe(
       (response: any) => {
-        this.products = response;
+        if (response) this.products = response;
       }
     );
   }

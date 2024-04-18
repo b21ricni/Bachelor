@@ -58,8 +58,8 @@ function Products() {
       <div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="searchInput">Search for product</label>
-          <input className="input-search-prduct" onChange={handleInputChange} />
-          <button className="btn-search-product" type="submit">Search</button>
+          <input className="input-search-prduct"  id="searchInput" onChange={handleInputChange} />
+          <button className="btn-search-product" id="btn-search-prodpage" type="submit">Search</button>
         </form>
       </div>
       <h1>Product List</h1>
