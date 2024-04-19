@@ -6,13 +6,13 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" id="btn-home-page">Home</Link>
           </li>
           <li>
-            <Link to="Products">Products</Link>
+            <Link to="Products" id="btn-prod-page">Products</Link>
           </li>
           <li>
-            <Link to ="Cart">Cart</Link>
+            <Link to ="Cart" id="btn-cart-page">Cart</Link>
           </li>
         </ul>
       </nav>
