@@ -5,6 +5,6 @@
     <strong>{{ product.Name }}</strong>
     <p>${{product.Price}}</p>
     <p>{{product.Description}}</p>
-    <button (click)="deleteCartProduct(product.ID)">Delete</button>
+    <button class="btn-remove-product" (click)="deleteCartProduct(product.ID)">Delete</button>
   </li>
 </ul>

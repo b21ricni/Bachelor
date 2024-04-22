@@ -1,7 +1,7 @@
 <h1>Products</h1>
 
 <div>
-  <form (ngSubmit)="searchProducts()" >
+  <form id="searchForm" (ngSubmit)="searchProducts()" >
     <label for="searchInput">Search for product</label>
     <input [(ngModel)]="searchWord" class="searchInput" name="searchInput" id="searchInput"/>
     <button className="btn-search-product" type="submit" id="btn-search-prodpage">Search</button>
@@ -9,12 +9,12 @@
 </div>
 
 
-<ul>
+<ul id="searchContainer">
   <li *ngFor="let product of products" id="{{ product.ID }}">
     <img class="prodImg" src="http://localhost/Bachelor/angular-app/images/{{ product.Picture }}.png" />
     <strong>{{ product.Name }}</strong>
     <p>${{product.Price}}</p>
     <p>{{product.Description}}</p>
-    <button (click)="addCartProduct(product.ID)">Buy</button>
+    <button class="btn-add-product" (click)="addCartProduct(product.ID)" >Buy</button>
   </li>
 </ul>
