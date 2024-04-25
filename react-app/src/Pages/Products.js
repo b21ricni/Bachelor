@@ -29,18 +29,6 @@ function Products() {
     setProducts(data)
   };
 
-  function addSearch(){
-    fetch(baseUrl + "php/getProducts.php", {
-      method: "POST",
-      body: JSON.stringify({ searchWord }), // Convert to JSON
-      headers: {
-        Accept: 'application/json',
-        "Content-Type": "application/json",
-      }
-    })
-    .then((response) => response.json())
-    .then((data) => { setProducts(data) })
-  }
 
   function addCartProduct(ID) {
     fetch(baseUrl + "php/addCartProduct.php", {
