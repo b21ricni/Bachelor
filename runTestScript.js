@@ -4,13 +4,14 @@
 // @version      2024-04-18
 // @description  try to take over the world!
 // @author       You
-// @match        http://localhost:4200/start
+// @match        http://localhost:4200
+// @match        http://localhost:3000
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
 // @require      https://raw.githubusercontent.com/eligrey/FileSaver.js/master/dist/FileSaver.min.js
 // ==/UserScript==
 
 var searchWords = [];
-const runs = 3; //Change to required test runs
+const runs = 50; //Change to required test runs
 let current = 0;
 
 let addToCart = 5; //Change to random number?
@@ -41,7 +42,6 @@ async function runScript() {
                 document.getElementById("btn-search-prodpage").click();
 
                 await smallDelay();
-                //await testDelay();
 
                 //Add to cart function
                 addProd();
@@ -51,7 +51,7 @@ async function runScript() {
                 //Navigate to Cart page
                 document.getElementById("btn-cart-page").click();
 
-                await smallDelay();
+                await bigDelay();
 
                 getCart();
 
@@ -84,13 +84,12 @@ async function runScript() {
                 }
 
                 await bigDelay();
-                //Change accordingly to framework which is tested
-                window.location.href = 'http://localhost:4200/start'; //Angular
-                //window.location.href = ''; //React
-                //document.getElementById("btn-home-page").click();
+
+                //window.location.href = 'http://localhost:4200'; //Angular
+                window.location.href = 'http://localhost:3000'; //React
 
                 resolve(); //Next itteration allowed to run
-            }, 500); //Wait 0.X sec before running itteration
+            }, 500); //Wait 0.5 sec before running itteration
         });
     }
 }
@@ -120,12 +119,12 @@ function inputSearchWord() {
 }
 
 //To have time seeing results and if inputs act accordingly
-async function testDelay() {
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait for 2sec
+async function minorDelay() {
+    await new Promise((resolve) => setTimeout(resolve, 10)); // Wait for 0.01sec
 }
 
 async function smallDelay() {
-    await new Promise((resolve) => setTimeout(resolve, 500)); // Wait for 0.2sec
+    await new Promise((resolve) => setTimeout(resolve, 50)); // Wait for 0.05sec
 }
 
 async function bigDelay() {
