@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./Products.css";
+import "./Products.css"
+import "./Cart.css"
 
 const baseUrl = "http://localhost/Bachelor/react-app/"
 const imgUrl = "http://localhost/Bachelor/react-app/images/"
@@ -70,7 +71,7 @@ function Products() {
             <strong>{product.Name}</strong>
             <p>${product.Price}</p>
             <p>{product.Description}</p>
-            <button onClick={() => addCartProduct(product.ID)}>Buy</button>
+            <button class="btn-add-product" onClick={() => addCartProduct(product.ID)}>Buy</button>
           </li>
         ))}
       </ul>

@@ -39,7 +39,7 @@ function Cart() {
             <strong>{product.Name}</strong>
             <p>${product.Price}</p>
             <p>{product.Description}</p>
-            <button onClick={() => deleteCartProduct(product.ID)}>Delete</button>
+            <button class="btn-remove-product" onClick={() => deleteCartProduct(product.ID)}>Delete</button>
           </li>
         ))}
       </ul>
