@@ -7,8 +7,8 @@ function App() {
   const [picture, setPicture] = useState("")
   const [price, setPrice] = useState("")
 
-  function handleSubmit(e){
-    e.preventDefault()
+  function handleSubmit(){
+    //e.preventDefault()
 
     addDBprod()
   }
