@@ -7,8 +7,8 @@ function App() {
   const [picture, setPicture] = useState("")
   const [price, setPrice] = useState("")
 
-  function handleSubmit(){
-    //e.preventDefault()
+  function handleSubmit(e){
+    e.preventDefault()
 
     addDBprod()
   }
@@ -53,7 +53,7 @@ function App() {
           id="pictureInput" 
           onChange={(e) => setPicture(e.target.value)} 
         />
-        <button className="btn-search-product" id="btn-search-prodpage" type="submit">Search</button>
+        <button className="btn-add-product" id="btn-add" type="submit">Add</button>
       </form>
     </div>
   );
