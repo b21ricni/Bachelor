@@ -14,7 +14,14 @@ $description = $_POST['description'];
 $picture = intval($_POST['picture']);
 $price = intval($_POST['price']);
 
-$sql = "INSERT INTO `product`(`Description`, `Name`, `Price`, `Picture`) VALUES ('$description','$name','$price', '$picture')";
+if (!$name){
+    $result = mysqli_query($connect, $sql);
+
+    mysqli_close($connect);
+    return ;
+} else {
+    $sql = "INSERT INTO `product`(`Description`, `Name`, `Price`, `Picture`) VALUES ('$description','$name','$price', '$picture')";
+}
 
 $result = mysqli_query($connect, $sql);
 
