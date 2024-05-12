@@ -37,5 +37,6 @@ export class EcartComponent implements OnInit{
         this.getProducts();
       },
     );
+    this.products = this.products.filter((p) => p.ID !== ID);
   }
 }
