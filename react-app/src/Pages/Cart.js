@@ -35,7 +35,7 @@ function Cart() {
       <ul>
         {products.map((product) => (
           <li key={product.ID}>
-            <img className="prodImg" src={imgUrl + product.Picture + ".png"}></img>
+            <img className="prodImg" src={imgUrl + "Bach - Copy (" + product.Picture + ").png"}></img>
             <strong>{product.Name}</strong>
             <p>${product.Price}</p>
             <p>{product.Description}</p>
