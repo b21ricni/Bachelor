@@ -34,9 +34,8 @@ export class EcartComponent implements OnInit{
 
     this.http.post(deleteCartProduct, requestData).subscribe(
       () => {
-        this.getProducts();
+        this.products = this.products.filter((p) => p.ID !== ID);
       },
     );
-    this.products = this.products.filter((p) => p.ID !== ID);
   }
 }
