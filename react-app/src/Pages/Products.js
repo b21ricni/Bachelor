@@ -21,7 +21,7 @@ function Products() {
   }
 
   useEffect(() => {
-    fetchProducts()
+    //fetchProducts()
   }, []);
   
   const fetchProducts = async () => {
